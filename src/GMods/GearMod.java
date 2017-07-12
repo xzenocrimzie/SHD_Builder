@@ -24,19 +24,25 @@ import java.util.ArrayList;
  */
 public class GearMod {
     public int[] mainstat = new int[3];
-    public String bcontext;
-    public int bvalue;
+    public String bcontext; // actual mod effect
+    public int bvalue; // actual effect value
+    public int bvalueformat; //value format because new variables why the fuck not
     
-    ArrayList<String> acontext = new ArrayList<>(22); //mod context
-    ArrayList<Integer> avalue = new ArrayList<>(22); // context value TODO
+    ArrayList<String> acontext = new ArrayList<>(); //mod context
+    ArrayList<Integer> aformat = new ArrayList<>(); // context value type TODO
 
     public GearMod (int[] a, String b, int c){
         // a = mainstat value
         // b = context bonus
         // c = context value
-        int d; // variables for later
-        
+        int d; // init for random ass variables
+        acontext.ensureCapacity(22); //There are 22 different mod effects.
+        aformat.ensureCapacity(22);
         //put all the mod contexts into memory
+        
+        //TODO once the rest of the system is made, you want to turn this into a switch
+        // so you can work with variables instead of strings because strings are bad
+        // mmk?
         acontext.add("Ballistic Shield Damage"); //int?
         acontext.add("Ballistic Shield Damage Resilience"); //Percent?
         acontext.add("Ballistic Shield Health"); //int?
@@ -59,11 +65,40 @@ public class GearMod {
         acontext.add("Turret Damage"); //int
         acontext.add("Turret Duration"); //percent?
         acontext.add("Turret Health"); //int
+        
+        // TODO Placeholder int = 1, percent = 2, 3 = distance in m
+        aformat.add(1); //Shield Damage
+        aformat.add(2); //Shield Damage Resilience
+        aformat.add(1); // Shield Health
+        aformat.add(2); // Aid Ally Heal
+        aformat.add(2); // Aid Self Heal
+        aformat.add(2); // MCover Damage Resilience
+        aformat.add(1); // MCover Health
+        aformat.add(2); // Pulse Crit Chance
+        aformat.add(2); // Pulse Crit Damage
+        aformat.add(2); // Pulse Duration
+        aformat.add(1); // Seeker Damage
+        aformat.add(3); // Seeker Radius
+        aformat.add(2); // SCover Resilience
+        aformat.add(1); // SCover Duration
+        aformat.add(1); // Bomb Damage
+        aformat.add(3); // Bomb Radius
+        aformat.add(1); // Drug Station Duration
+        aformat.add(1); // Drug Station Speed
+        aformat.add(3); // Drug Station Range
+        aformat.add(1); // Turret Damage
+        aformat.add(2); // Turret Duration
+        aformat.add(1); // Turret Health
+        
+        
+        
         //appy all the values to the mod
         System.arraycopy(a, 0, mainstat, 0, 3); // mainstat values copied
         d = acontext.indexOf(b);
         bcontext = acontext.get(d); // context bonus copied
-        bvalue = c; //TODO: also copy whether it's a percent or whatever
+        bvalueformat = aformat.get(d);
+        bvalue = c; 
+        
         
         
         

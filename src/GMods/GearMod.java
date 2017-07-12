@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 JENSEN
+ * Copyright (C) 2017 THOMAS JENSEN
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author JENSEN
+ * @author THOMAS JENSEN
  */
 public class GearMod {
     public int[] mainstat = new int[3];

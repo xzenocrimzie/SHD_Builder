@@ -82,5 +82,34 @@ public class Gear{
                 break;
         }
     }
+    public int getQuality (){
+        int a = this.quality;
+        return(a);
+    }
+    
+    public void setQuality(int a){
+        this.quality = a;
+    }
+    
+    public int getArmour (){
+        int a = this.armour;
+        return(a);
+    }
+    
+    public void setArmour(int a){
+        this.armour = a;
+    }
+
+    public int[] getMainstat(){
+        int[] a = mainstat.clone();
+        return a;        
+    }
+    
+    public void setMainstat(int[] a){
+        this.mainstat = a;
+    
+    }
+
+
 }
 

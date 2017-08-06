@@ -35,7 +35,9 @@ public class SHD_Builder {
         Gear kneepads = new Gear(5);
         Gear holster = new Gear(6);
         
-        
+        int[] a = new int[3];
+        a[1] = 200;
+        GearMod gearmod1 = new GearMod(a, "First Aid Ally Heal", 2);
         
         
         
